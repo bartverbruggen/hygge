@@ -1,0 +1,38 @@
+$flex-justify: (
+  'left': flex-start,
+  'right': flex-end,
+  'center': center,
+  'justify': space-between,
+  'spaced': space-around,
+);
+
+$flex-align: (
+  'top': flex-start,
+  'bottom': flex-end,
+  'middle': center,
+  'stretch': stretch,
+);
+
+@import 'extends/flex';
+
+.flex {
+  display: flex;
+}
+
+// Horizontal alignment using justify-content
+@each $hdir, $prop in map-remove($flex-justify, left) {
+  .align-#{$hdir} {
+    justify-content: #{$prop};
+  }
+}
+
+// Vertical alignment using align-items and align-self
+@each $vdir, $prop in $flex-align {
+  .align-#{$vdir} {
+    align-items: #{$prop};
+  }
+
+  .align-self-#{$vdir} {
+    align-self: #{$prop};
+  }
+}

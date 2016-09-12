@@ -1,0 +1,120 @@
+// If you wish to nest for a speficic element
+// .class {
+//   @include forElement(a) {
+//     display: block;
+//     text-decoration: none;
+//   }
+// }
+@mixin forElement($elem) {
+  @at-root {
+    #{$elem}#{&} {
+      @content;
+    }
+  }
+}
+
+// Breakpoints
+@mixin breakpoint($point, $query: min-width) {
+  @if type-of($point) == string {
+    $point: map-get($breakpoints, $point);
+  }
+  @if $breakpoints-legacy {
+    @if $breakpoints-legacy >= $point {
+      @content;
+    }
+  } @else {
+    @if $query == max-width {
+      @media ($query: $point - 1)  {
+        @content;
+      }
+    } @else  {
+      @media ($query: $point)  {
+        @content;
+      }
+    }
+  }
+}
+
+// Micro clearfix: [Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/)
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    flex-basis: 0;
+    order: 1;
+  }
+  &:after {
+    clear:both;
+  }
+}
+// Create the cf alias for clearfix
+@mixin cf {
+  @include clearfix;
+}
+
+@mixin absolute-fill() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// Removes the unit (e.g. px, em, rem) from a value, returning the number only.
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Only use this content if we're dealing with old IE [DEPRECATED]
+// @mixin legacy {
+//   @if $breakpoints-legacy {
+//     @content;
+//   }
+// }
+
+// Scales a color to be lighter if it's light, or darker if it's dark. Use this function to tint a color appropriate to its lightness.
+@function smart-scale($color, $scale: 10%, $threshold: 40%) {
+  @if lightness($color) > $threshold {
+    $scale: -$scale;
+  }
+  @return scale-color($color, $lightness: $scale);
+}
+
+// Checks the lightness of `$color`, and if it passes the `$threshold` of lightness, it returns the `$yes` color. Otherwise, it returns the `$no` color. Use this function to dynamically output a foreground color based on a given background color.
+@function foreground($color, $yes: $black, $no: $white, $threshold: 60%) {
+  @if $color == transparent {
+    $color: $body-background;
+  }
+  @if (lightness($color) > $threshold) {
+    @return $yes;
+  }
+  @else {
+    @return $no;
+  }
+}
+
+@mixin grayscale() {
+  webkit-filter: grayscale(100%);
+  filter: gray; filter: grayscale(100%);
+  filter: url(/img/svg/grayscale.svg#grayscale);
+}
+
+@mixin background-sliding($color, $color-alt: transparent, $position: down) {
+  background-image: linear-gradient(to bottom, $color 0%, $color 50%, $color-alt 50%, $color-alt 100%);
+  background-size: 100% 200%;
+  @if $position == down {
+    background-position: 0 100%;
+  }
+  @if $position == up {
+    background-position: 0 -100%;
+  }
+  @include transitions((background, color));
+  &:hover,
+  &:focus,
+  &:active {
+    background-position: 0 0;
+    color: invert($color);
+    border-color: $color;
+  }
+}

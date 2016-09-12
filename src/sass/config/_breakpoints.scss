@@ -1,0 +1,12 @@
+// Breakpoints
+$breakpoints: (
+  small: 320px,
+  medium: 640px,
+  large: 986px,
+  xlarge: 1196px,
+  xxlarge: 1440px
+);
+
+$breakpoint-classes: (small medium large);
+$breakpoint-flyout: large;
+$breakpoints-legacy: false !default;

@@ -1,0 +1,25 @@
+// Colors need their own file!!
+$color-palette: (
+  primary: #6EA9BC,
+  secondary: #7DC579,
+  tertiary: #CD5341,
+  success: #90F5B5,
+  warning: #E7803F,
+  alert: #FF5252,
+);
+
+$color-primary: map-get($color-palette, primary);
+$color-secondary: map-get($color-palette, secondary);
+$color-success: map-get($color-palette, success);
+$color-warning: map-get($color-palette, warning);
+$color-alert: map-get($color-palette, alert);
+
+$gray-dark: #5B6062;
+$gray-medium: #A6ADAF;
+$gray-light: #DEE4E7;
+$gray-xlight: #F9F9F8;
+$black: #414648;
+$white: #fff;
+
+// For the background of the selected text
+$color-highlight: $color-primary;

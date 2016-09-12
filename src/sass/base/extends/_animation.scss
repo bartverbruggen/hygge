@@ -1,0 +1,10 @@
+@mixin transitions($list, $time: $transition-duration, $easing: $transition-easing) {
+  $transitions: ();
+
+  @each $transition in $list {
+    $trans: unquote("#{$transition} #{$time} #{$easing}");
+    $transitions: append($transitions, $trans, comma);
+  }
+
+  transition: #{$transitions};
+}

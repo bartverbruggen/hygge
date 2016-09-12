@@ -1,0 +1,37 @@
+// TODO
+// ALLES HERZIEN
+
+img {
+  // Grid defaults to get images and embeds to work properly
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+
+  // Get rid of gap under images by making them display: inline-block; by default
+  display: inline-block;
+  vertical-align: middle;
+}
+
+svg {
+  fill: currentColor;
+  // stroke: currentColor;
+  // stroke-width: 1.5;
+  // pointer-events: none;
+}
+
+.image {
+  &--full-width {
+    width: 100%;
+    height: auto;
+  }
+  &--right {
+    float: right;
+    margin-left: $global-margin;
+    margin-bottom: $global-margin * 0,5;
+  }
+  &--left {
+    float: left;
+    margin-right: $global-margin;
+    margin-bottom: $global-margin * 0,5;
+  }
+}

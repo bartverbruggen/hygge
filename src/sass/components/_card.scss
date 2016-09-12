@@ -1,0 +1,32 @@
+$card-padding: $rh-medium;
+
+.card {
+  box-shadow: 0 2px 8px rgba($black, .2);
+  &__header {
+    padding: $card-padding;
+    background: $gray-light;
+    #{$headings} {
+      color: inherit;
+    }
+  }
+
+  &__content {
+    padding: $card-padding;
+  }
+
+  @include forElement(a) {
+    display: block;
+    text-decoration: none;
+  }
+
+  & + & {
+    margin-top: $rh-medium;
+  }
+
+  // &--success {
+  //   .card__header {
+  //     background: $color-success;
+  //     color: $white;
+  //   }
+  // }
+}

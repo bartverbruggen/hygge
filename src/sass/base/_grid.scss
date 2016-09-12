@@ -1,0 +1,106 @@
+// Variables
+//
+// $grid-rhythm               : The rythm (space) used in the grid
+// $grid-column-count         : The total amount of columns
+// $grid-column-gutter        : The amount of space between two columns, defaults to the rhythm
+// $grid-container-width      : The total width of the container for large / medium / small
+// $grid-columns              : The grid__[x] items that should be available
+// $grid-offset               : The grid-offset__[x] items that should be available
+$grid-column-count: 12 !default;
+$grid-column-gutter: ($rh-base * 2) !default;
+$grid-container-width: 1196px !default;
+$grid-columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) !default;
+$grid-offset: (3, 6) !default;
+$grid-render-example: false;
+
+// Mixins, functions, ...
+@import 'extends/grid';
+
+// CSS
+.container {
+  @include container-fluid(16px);
+  max-width: $grid-container-width;
+}
+
+.row {
+  @include make-row(16px);
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    min-height: 1px;
+    width: 100%;
+    margin-top: $grid-column-gutter;
+    padding-left: ($grid-column-gutter / 2);
+    padding-right: ($grid-column-gutter / 2);
+    @if $breakpoints-legacy {
+      display: block;
+      float: left;
+    }
+  }
+}
+
+// Creates all the grid item classes
+// Examples: .grid__6
+@each $column in $grid-columns {
+  .grid__#{$column} {
+    @include make-column($column);
+  }
+}
+
+// Creates all the breakpoint grid ITEM classes
+// Example: .grid__8--medium
+@each $bp, $px in $breakpoints {
+  @each $column in $grid-columns {
+    .grid__#{$column} {
+      @include breakpoint($bp) {
+        &--#{$bp} {
+          @include make-column($column);
+        }
+      }
+    }
+  }
+}
+
+.grid__0 {
+  display: none;
+}
+.grid__12 {
+  display: block;
+}
+
+// Creates all the offset class
+// Example: .grid-offset__6
+@each $column in $grid-offset {
+  .grid-offset__#{$column} {
+    @include make-column-offset($column);
+  }
+}
+// Example: .grid-offset__6--medium
+@each $bp, $px in $breakpoints {
+  @each $column in $grid-offset {
+    .grid-offset__#{$column} {
+      @include breakpoint($bp) {
+        &--#{$bp} {
+          @include make-column-offset($column);
+        }
+      }
+    }
+  }
+}
+
+@if $grid-render-example {
+  .grid__example {
+    padding: $rh-medium;
+    background: $gray-light;
+    color: $color-primary;
+    font-family: $header-font-family;
+    font-weight: bold;
+    text-align: center;
+    &--high {
+      height: 400px;
+    }
+  }
+}

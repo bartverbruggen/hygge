@@ -1,0 +1,14 @@
+// Rhythm
+$rh-base: 8px;
+$rhythm: (
+  xsmall: $rh-base / 2,
+  small: $rh-base,
+  medium: $rh-base * 2,
+  large: $rh-base * 4,
+  xlarge: $rh-base * 8
+) !default;
+$rh-xsmall: map-get($rhythm, xsmall);
+$rh-small: map-get($rhythm, small);
+$rh-medium: map-get($rhythm, medium);
+$rh-large: map-get($rhythm, large);
+$rh-xlarge: map-get($rhythm, xlarge);

@@ -1,0 +1,11 @@
+{
+  "name": "Spring",
+  "version": "0.1.0",
+  "description": "A great way to start every project",
+  "license": "MIT",
+  "dependencies": {
+    "feature.js": "^1.0.0",
+    "lodash": "^4.15.0",
+    "normalize.css": "^4.2.0"
+  }
+}

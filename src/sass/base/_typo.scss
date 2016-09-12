@@ -1,0 +1,243 @@
+$font-weight-thin: 100 !default;
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semi-bold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extra-bold: 800 !default;
+$font-weight-base: $font-weight-regular !default;
+
+$base-font-size: 16px !default;
+$base-font-color: $black !default;
+$base-font-family: 'Rubik', 'Arial', sans-serif !default;
+$base-line-height: 22px;
+
+$headings: h1, h2, h3, h4, h5;
+$headings-font-color: $color-primary !default;
+$headings-font-family: 'Montserrat', 'Arial', sans-serif !default;
+$headings-font-weight: $font-weight-regular !default;
+$headings-line-height: 1.2 !default;
+
+$headings-color-alt: null !default;
+
+@import 'extends/typo';
+
+:root {
+  font-size: $base-font-size;
+}
+
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  line-height: lh($base-line-height);
+}
+
+p {
+  margin: 0 0 $rh-small;
+}
+
+%ext-heading {
+  margin-top: $rh-large;
+  margin-bottom: $rh-medium;
+  color: $headings-font-color;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  text-transform: none;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  a {
+    @include link-variant(inherit);
+    text-decoration: none;
+    position: relative;
+    .icon {
+      @include transitions(all);
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: $color-primary;
+      opacity: 0;
+    }
+  }
+  // em {
+  //   color: $color-primary;
+  //   font-style: normal;
+  // }
+  // &:hover {
+  //   a .icon {
+  //     opacity: 1;
+  //     transform: translateX(110%);
+  //   }
+  // }
+}
+
+.t-heading {
+  &--alt {
+    color: $color-secondary;
+  }
+  &--1 {
+    @extend %ext-heading;
+    // @include fsRem($font-size-h1 * .7);
+    color: $color-primary;
+
+    // @include breakpoint(map-get($breakpoints, med)) {
+      // @include fsRem($font-size-h1);
+    // }
+
+    // // Variants
+    // @include breakpoint(map-get($breakpoints, xsm)){
+    //   @include fsRem($font-size-h1 * .6);
+    // };
+    // @include breakpoint(map-get($breakpoints, sml)){
+    //   @include fsRem($font-size-h1 * .75);
+    // };
+    // @include breakpoint(map-get($breakpoints, med)){
+    //   @include fsRem($font-size-h1);
+    // };
+  }
+  &--2 {
+    @extend %ext-heading;
+    // @include fsRem($font-size-h2);
+    // @include fsRem($font-size-h2 * .75);
+    // // Variants
+    // @include breakpoint(map-get($breakpoints, sml)){
+    //   @include fsRem($font-size-h2);
+    // };
+  }
+  &--3 {
+    @extend %ext-heading;
+    // @include fsRem($font-size-h3);
+    // @include fsRem($font-size-h3 * .8);
+    // // Variants
+    // @include breakpoint(map-get($breakpoints, sml)){
+    //   @include fsRem($font-size-h3);
+    // };
+  }
+  &--4 {
+    @extend %ext-heading;
+    // @include fsRem($font-size-h4);
+  }
+  &--5 {
+    @extend %ext-heading;
+    // @include fsRem($font-size-h5);
+  }
+  @if global-variable-exists(headings-color-alt) {
+    &--alt {
+      color: $headings-color-alt;
+    }
+  }
+}
+
+h1 {
+  @extend .t-heading--1;
+}
+h2 {
+  @extend .t-heading--2;
+}
+h3 {
+  @extend .t-heading--3;
+}
+h4 {
+  @extend .t-heading--4;
+}
+h5 {
+  @extend .t-heading--5;
+}
+
+#{$headings} {
+  & + & {
+    margin-top: 0;
+  }
+}
+
+.t-info {
+  @include fsRem(14px);
+  color: $gray-medium;
+}
+
+.t-lead {
+  @include fsRem(18px);
+  margin-bottom: $rh-medium;
+}
+
+.t-heading--border {
+  border-bottom: 1px solid;
+}
+
+.t-label {
+  @include fsRem(12px);
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+}
+
+// Alignment
+.t-left {
+  text-align: left;
+}
+.t-right {
+  text-align: right;
+}
+.t-center {
+  text-align: center;
+}
+.t-justify {
+  text-align: justify;
+}
+.t-nowrap {
+  white-space: nowrap;
+}
+
+// E.g.: .t-left--medium
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .t-left--#{$bp} {
+      text-align: left;
+    }
+  }
+}
+// E.g.: .t-right--medium
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .t-right--#{$bp} {
+      text-align: right;
+    }
+  }
+}
+
+// Transformation
+.t-lower {
+  text-transform: lowercase;
+}
+.t-upper {
+  text-transform: uppercase;
+}
+.t-capitalize {
+  text-transform: capitalize;
+}
+.t-overflow {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.t-no-overflow {
+  white-space: nowrap;
+}
+
+.t {
+  @each $type, $color in $color-palette {
+    &-#{$type} {
+      color: $color;
+    }
+  }
+}
+
+.t-strong {
+  font-weight: bold;
+}
