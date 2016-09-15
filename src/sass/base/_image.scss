@@ -26,12 +26,12 @@ svg {
   }
   &--right {
     float: right;
-    margin-left: $global-margin;
-    margin-bottom: $global-margin * 0,5;
+    margin-left: $rh-medium;
+    margin-bottom: $rh-medium * 0,5;
   }
   &--left {
     float: left;
-    margin-right: $global-margin;
-    margin-bottom: $global-margin * 0,5;
+    margin-right: $rh-medium;
+    margin-bottom: $rh-medium * 0,5;
   }
 }

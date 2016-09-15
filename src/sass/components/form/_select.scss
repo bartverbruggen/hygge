@@ -1,0 +1,14 @@
+.c-select {
+  @extend %ext-input-style;
+  cursor: pointer;
+  -webkit-appearance: none;
+  // hide mozilla's dirty arrow with -moz-appearance: window
+  -moz-appearance: none;
+  appearance: none;
+  &:focus {
+    outline: none;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+}

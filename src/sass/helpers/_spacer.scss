@@ -1,6 +1,6 @@
 $spacer-spacing: $rh-medium;
 
-.spacer {
+.h-spacer {
   & + & {
     margin-top: $spacer-spacing;
   }
@@ -11,7 +11,7 @@ $spacer-spacing: $rh-medium;
 
   @each $rh, $px in $rhythm {
     &--#{$rh} {
-      [class*="spacer"] + & {
+      [class*="h-spacer"] + & {
         margin-top: $px;
       }
     }

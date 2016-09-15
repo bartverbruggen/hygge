@@ -9,13 +9,16 @@
   @include button-variant($white, $color-primary);
   @include fsRem(16px);
   display: inline-block;
-  padding: $rh-small $rh-xlarge;
+  height: ($rh-base * 6);
+  padding: 0 $rh-large;
   border-style: solid;
   border-width: 0;
   border-radius: 2px;
-  line-height: 1;
+  cursor: pointer;
+  line-height: normal;
   text-decoration: none;
-  vertical-align: baseline;
+  vertical-align: middle;
+  line-height: ($rh-base * 6);
 
   &:active,
   &.active {
@@ -31,7 +34,6 @@
   &--outline {
     @include button-variant($base-font-color, ($white, $gray-xlight), $base-font-color);
     border-width: 1px;
-    padding: 9px 11px;
   }
   &--text {
     @include button-variant($base-font-color, transparent);
@@ -47,20 +49,21 @@
     cursor: not-allowed;
   }
 
-  &--xlarge {
-    @include fsRem(24px);
-    padding: 18px 24px;
-    &.button--outline {
-      padding: 16px 22px;
-      border-width: 2px;
-    }
-    &.button--text {
-      padding: 0;
-    }
-  }
+  // &--xlarge {
+  //   @include fsRem(24px);
+  //   padding: 18px 24px;
+  //   &.button--outline {
+  //     padding: 16px 22px;
+  //     border-width: 2px;
+  //   }
+  //   &.button--text {
+  //     padding: 0;
+  //   }
+  // }
   &--large {
     @include fsRem(20px);
-    padding: 14px 18px;
+    height: ($rh-base * 8);
+    line-height: ($rh-base * 8);
     &.button--outline {
       padding: 13px 17px;
     }
@@ -75,7 +78,9 @@
   // }
   &--small {
     @include fsRem(14px);
-    padding: 6px 8px;
+    height: ($rh-base * 4);
+    line-height: ($rh-base * 4);
+    padding: 0 $rh-medium;
     &.button--outline {
       padding: 5px 7px;
     }

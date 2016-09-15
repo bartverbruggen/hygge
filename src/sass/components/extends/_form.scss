@@ -1,0 +1,70 @@
+%ext-input-style-hover {
+  border-color: $input-focus-border-color;
+}
+%ext-input-style-focus {
+  outline: none;
+  border-color: $input-focus-border-color;
+  background: $input-focus-background-color;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba($input-focus-border-color, .5);
+  &::-webkit-input-placeholder {
+    color: transparent;
+  }
+  &::-moz-placeholder {
+    color: transparent;
+  }
+}
+%ext-input-style-disabled {
+  color: $input-disabled-color;
+  border-color: $input-disabled-border-color;
+  cursor: not-allowed;
+}
+%ext-input-style-error {
+  border-color: $input-error-border-color;
+  color: $input-error-color;
+}
+%ext-input-style-not-empty {
+  & ~ .form__icon--clear {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+%ext-input-style {
+  @include transitions((color, background, border));
+  position: relative;
+  display: block;
+  width: 100%;
+  height: $input-height;
+  padding: $input-padding-vertical $input-padding-horizontal;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  background-color: $input-background-color;
+  color: $input-color;
+  @include fsRem(16px);
+  line-height: inherit;
+  &::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:hover {
+    @extend %ext-input-style-hover;
+  }
+  &:focus {
+    @extend %ext-input-style-focus;
+    ~ .form__icon--button {
+      background: $input-focus-border-color;
+    }
+  }
+  &[disabled] {
+    @extend %ext-input-style-disabled;
+  }
+  &:not(:placeholder-shown) {
+    @extend %ext-input-style-not-empty;
+  }
+  .form__item--error & {
+    @extend %ext-input-style-error;
+  }
+}
