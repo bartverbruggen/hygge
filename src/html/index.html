@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stickersheet</title>
+    <script type="text/javascript">
+        WebFontConfig = {"google":{"families":["Rubik:400,400italic,500,700,700italic:latin","Montserrat:400:latin"]}};
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+              '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1>H1 Hoofdtitel</h1>
+    <h2>H2 Titel</h2>
+    <h3>H3 Subtitel <small>hehe</small></h3>
+    <p>Body text</p>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p class="t-label">Label</p>
+    <p>
+        <button class="button">Button</button>
+        <button class="button button--large">Button Large</button>
+        <button class="button button--small">Button Small</button>
+        <button class="button button--secondary">Button Secondary</button>
+        <button class="button button--outline">Button Outline</button>
+    </p>
+
+    <div class="h-spacer">
+        <div class="c-card">
+            <div class="c-card__header">
+                <h3>Ligula Quam Etiam</h3>
+            </div>
+            <div class="c-card__content">
+                <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="c-card c-card--success">
+            <div class="c-card__header">
+                <h3>Ligula Quam Etiam</h3>
+            </div>
+            <div class="c-card__content">
+                <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+
+    <form action="#" class="h-spacer">
+        <div class="c-field">
+            <label for="firstname" class="c-field__label t-label">Firstname</label>
+            <input type="text" class="c-field__element c-input" id="firstname" placeholder="ex. Placeholder">
+        </div>
+        <div class="c-field">
+            <label for="lastname" class="c-field__label t-label">Lastname</label>
+            <input type="text" class="c-field__element c-input" id="lastname" disabled>
+        </div>
+        <div class="c-field">
+            <label for="birthday" class="c-field__label t-label">Date of birth</label>
+            <div class="c-field__element">
+                <div class="c-field__icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1" />
+                    </svg>
+                </div>
+                <input type="text" class="c-input" id="birthday">
+            </div>
+        </div>
+        <div class="c-field">
+            <label for="description" class="c-field__label t-label">Description</label>
+            <textarea id="description" cols="30" rows="10" class="c-input c-field__element"></textarea>
+        </div>
+        <div class="c-field">
+            <label for="type" class="c-field__label t-label">Type</label>
+            <div class="c-field__element">
+                <div class="c-field__icon c-field__icon--right" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M7,10L12,15L17,10H7Z" />
+                    </svg>
+                </div>
+                <select id="type" class="c-select">
+                    <option value="">Selecteer type</option>
+                    <option value="1">Type 1</option>
+                    <option value="2">Type 2</option>
+                    <option value="3">Type 3</option>
+                    <option value="4">Type 4</option>
+                </select>
+            </div>
+        </div>
+        <div class="c-field">
+            <div class="c-field__element">
+                <label class="c-option" for="option1">
+                    <input type="radio" id="option1" name="option" class="c-option__input">
+                    <div class="c-option__label">Optie 1</div>
+                    <svg class="icon c-option__icon" viewBox="0 0 24 24">
+                        <path d="M20.5,12 C20.5,7.30557963 16.6944204,3.5 12,3.5 C7.30557963,3.5 3.5,7.30557963 3.5,12 C3.5,16.6944204 7.30557963,20.5 12,20.5 C16.6944204,20.5 20.5,16.6944204 20.5,12 Z M4.5,12 C4.5,7.85786438 7.85786438,4.5 12,4.5 C16.1421356,4.5 19.5,7.85786438 19.5,12 C19.5,16.1421356 16.1421356,19.5 12,19.5 C7.85786438,19.5 4.5,16.1421356 4.5,12 Z" id="circle" fill-opacity="0.5"></path>
+                        <path d="M17.5,12 C17.5,8.96243388 15.0375661,6.5 12,6.5 C8.96243388,6.5 6.5,8.96243388 6.5,12 C6.5,15.0375661 8.96243388,17.5 12,17.5 C15.0375661,17.5 17.5,15.0375661 17.5,12 Z" id="dot" fill="currentColor"></path>
+                    </svg>
+                </label>
+                <label class="c-option" for="option2">
+                    <input type="radio" id="option2" name="option" class="c-option__input">
+                    <div class="c-option__label">Optie 2</div>
+                    <svg class="icon c-option__icon" viewBox="0 0 24 24">
+                        <path d="M20.5,12 C20.5,7.30557963 16.6944204,3.5 12,3.5 C7.30557963,3.5 3.5,7.30557963 3.5,12 C3.5,16.6944204 7.30557963,20.5 12,20.5 C16.6944204,20.5 20.5,16.6944204 20.5,12 Z M4.5,12 C4.5,7.85786438 7.85786438,4.5 12,4.5 C16.1421356,4.5 19.5,7.85786438 19.5,12 C19.5,16.1421356 16.1421356,19.5 12,19.5 C7.85786438,19.5 4.5,16.1421356 4.5,12 Z" id="circle" fill-opacity="0.5"></path>
+                        <path d="M17.5,12 C17.5,8.96243388 15.0375661,6.5 12,6.5 C8.96243388,6.5 6.5,8.96243388 6.5,12 C6.5,15.0375661 8.96243388,17.5 12,17.5 C15.0375661,17.5 17.5,15.0375661 17.5,12 Z" id="dot" fill="currentColor"></path>
+                    </svg>
+                </label>
+                <label class="c-option" for="option3">
+                    <input type="radio" id="option3" name="option" class="c-option__input">
+                    <div class="c-option__label">Optie 3</div>
+                    <svg class="icon c-option__icon" viewBox="0 0 24 24">
+                        <path d="M20.5,12 C20.5,7.30557963 16.6944204,3.5 12,3.5 C7.30557963,3.5 3.5,7.30557963 3.5,12 C3.5,16.6944204 7.30557963,20.5 12,20.5 C16.6944204,20.5 20.5,16.6944204 20.5,12 Z M4.5,12 C4.5,7.85786438 7.85786438,4.5 12,4.5 C16.1421356,4.5 19.5,7.85786438 19.5,12 C19.5,16.1421356 16.1421356,19.5 12,19.5 C7.85786438,19.5 4.5,16.1421356 4.5,12 Z" id="circle" fill-opacity="0.5"></path>
+                        <path d="M17.5,12 C17.5,8.96243388 15.0375661,6.5 12,6.5 C8.96243388,6.5 6.5,8.96243388 6.5,12 C6.5,15.0375661 8.96243388,17.5 12,17.5 C15.0375661,17.5 17.5,15.0375661 17.5,12 Z" id="dot" fill="currentColor"></path>
+                    </svg>
+                </label>
+            </div>
+            <div class="c-field__note">Select an option to go to the next step</div>
+        </div>
+        <div class="c-field">
+            <div class="c-field__element">
+                <label class="c-option" for="checkbox">
+                    <input type="checkbox" id="checkbox" name="checkbox" class="c-option__input">
+                    <div class="c-option__label">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</div>
+                    <svg class="icon c-option__icon" viewBox="0 0 24 24">
+                        <path d="M5.50010618,4 L18.4998938,4 C19.3304644,4 20,4.66828248 20,5.50010618 L20,18.4998938 C20,19.3304644 19.3317175,20 18.4998938,20 L5.50010618,20 C4.66953564,20 4,19.3317175 4,18.4998938 L4,5.50010618 C4,4.66953564 4.66828248,4 5.50010618,4 Z M3,18.4998938 C3,19.8844221 4.11766984,21 5.50010618,21 L18.4998938,21 C19.8844221,21 21,19.8823302 21,18.4998938 L21,5.50010618 C21,4.11557792 19.8823302,3 18.4998938,3 L5.50010618,3 C4.11557792,3 3,4.11766984 3,5.50010618 L3,18.4998938 Z" id="Rectangle" fill-opacity="0.5"></path>
+                        <polygon id="Path-2" fill="currentColor" points="9.99447211 16.3936003 10.6769445 17.1260304 11.3594169 16.3936003 18.3130192 8.93098677 16.9480744 7.65914236 9.99447211 15.1217559 11.3594169 15.1217559 8.05192561 11.5721526 6.6869808 12.843997"></polygon>
+                    </svg>
+                </label>
+            </div>
+        </div>
+    </form>
+    <!-- <input type="number" pattern="[0-9]*" /> -->
+
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>

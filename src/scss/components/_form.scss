@@ -1,0 +1,56 @@
+$input-height: ($rh-base * 6) !default;
+$input-padding-vertical: 0 !default;
+$input-padding-horizontal: $rh-small !default;
+$input-padding: $input-padding-vertical $input-padding-horizontal !default;
+$input-border-width: 2px !default;
+$input-border-radius: 4px !default;
+$input-color: $black !default;
+$input-background-color: $white !default;
+$input-border-color: rgba($color-primary, .5) !default;
+
+$input-placeholder-color: rgba($color-primary, .5) !default;
+
+$input-focus-border-color: $color-primary !default;
+$input-focus-background-color: $white !default;
+$input-focus-shadow: 0 0 8px 0 rgba($input-focus-border-color, .5) !default;
+
+$input-error-border-color: $color-alert !default;
+$input-error-color: $black !default;
+
+$input-disabled-color: rgba($color-primary, .5) !default;
+$input-disabled-border-color: $gray-light !default;
+$input-disabled-background-color: $white !default;
+
+$option-padding: $rh-small !default;
+$option-color: $color-primary !default;
+$option-border-color: rgba($color-primary, .5) !default;
+
+$option-hover-border-color: $color-primary !default;
+
+@import 'extends/form';
+@import 'form/field';
+@import 'form/input';
+@import 'form/select';
+@import 'form/option';
+@import 'form/actions';
+
+form,
+.c-form {
+  margin-bottom: $rh-medium;
+  &.is-submitted {
+    position: relative;
+    opacity: .5;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      cursor: wait;
+      cursor: progress;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "root": {
+    "src": "./src",
+    "dest": "../application/public",
+    "dest": "./public"
+  },
+
+  "tasks": {
+    "browserSync": {
+      "proxy": {
+        "target": "http://spring.local.bruusk.be",
+        "ws": true
+      },
+      "options": {
+        "watchTask": true
+      }
+    },
+
+    "static": {
+      "src": "static",
+      "dest": "./"
+    },
+
+    "js": {
+      "src": "js",
+      "dest": "js",
+      "entries": {
+        "main": ["./main.js"]
+      },
+      "extensions": ["js", "json"],
+      "babel": {
+        "presets": ["es2015", "stage-1"],
+        "plugins": []
+      },
+      "extractSharedJs": false
+    },
+
+    "css": {
+      "src": "scss",
+      "dest": "css",
+      "postcss": {
+          "autoprefixer": {
+            "browsers": ["last 3 versions"]
+          },
+          "cssnano": {
+            "autoprefixer": false
+          }
+      },
+      "sass": {
+        "indentedSyntax": true,
+        "includePaths": [
+          "./node_modules/normalize.css"
+        ]
+      },
+      "extensions": ["sass", "scss", "css"]
+    },
+
+    "html": {
+      "src": "html",
+      "dest": "./",
+      "dataFile": "data/global.json",
+      "htmlmin": {
+        "collapseWhitespace": true
+      },
+      "extensions": ["html", "json"],
+      "excludeFolders": ["layouts", "shared", "macros", "data"]
+    },
+
+    "images": {
+      "src": "img",
+      "dest": "img",
+      "extensions": ["jpg", "png", "svg", "gif"]
+    },
+
+    "fonts": {
+      "src": "fonts",
+      "dest": "fonts",
+      "extensions": ["woff2", "woff"]
+    },
+
+    "svgSprite": {
+      "src": "icons",
+      "dest": "img/icons",
+      "extensions": ["svg"]
+    },
+
+    "production" : {
+      "rev": true
+    }
+  }
+}

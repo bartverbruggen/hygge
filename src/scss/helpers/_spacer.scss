@@ -1,0 +1,42 @@
+$spacer-spacing: $rh-medium;
+$spacer-pos: (
+  top,
+  bottom,
+);
+
+.h-spacer {
+  & + & {
+    margin-top: $spacer-spacing;
+  }
+  &--divider {
+    padding-top: $spacer-spacing;
+    border-top: 1px solid $gray-light;
+  }
+
+  @each $rh, $px in $rhythm {
+    &--#{$rh} {
+      [class*="h-spacer"] + & {
+        margin-top: $px;
+      }
+    }
+  }
+}
+
+// .h-spacing-top--large
+// .h-spacing-top
+@each $pos in $spacer-pos {
+  .h-spacing-#{$pos} {
+    @each $rh, $px in $rhythm {
+      @if $rh == 'medium' {
+        &,
+        &--#{$rh} {
+          margin-#{$pos}: $px;
+        }
+      } @else {
+        &--#{$rh} {
+          margin-#{$pos}: $px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@import 'extends/global';
+
+@import 'extends/global';
+
+// Print class
+.print-only,
+.print-only-inline {
+  display: none;
+}
+.screen-only {
+  display: block;
+}
+.screen-only-inline {
+  display: inline;
+}
+
+.pull--left {
+  float: left;
+}
+// .pull--left--medium
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, min-width) {
+//     .pull--left--#{$bp} {
+//       float: left;
+//     }
+//   }
+// }
+.pull--right {
+  float: right;
+}
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, min-width) {
+//     .pull--right--#{$bp} {
+//       float: right;
+//     }
+//   }
+// }
+
+// .show--medium
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, max-width) {
+    .show--#{$bp} {
+      display: none !important;
+    }
+  }
+}
+// .hidden--medium
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, min-width) {
+    .hidden--#{$bp} {
+      display: none !important;
+    }
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+// .show--medium
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, max-width) {
+    .show--#{$bp} {
+      display: none !important;
+    }
+  }
+}
+// .hidden--medium
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, min-width) {
+    .hidden--#{$bp} {
+      display: none !important;
+    }
+  }
+}
+
+// Internal classes to show/hide elements in JavaScript
+.is-visible {
+  display: block !important;
+}
+.is-visible-inline {
+  display: inline-block !important;
+}
+.is-hidden {
+  display: none !important;
+}
+.is-invisible {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.superhidden {
+  display: none !important;
+  visibility: hidden;
+}
+.visuallyhidden {
+  clip: rect(0 0 0 0);
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+  }
+}

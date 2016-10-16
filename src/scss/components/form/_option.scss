@@ -1,0 +1,38 @@
+.c-option {
+  position: relative;
+  display: block;
+  border: $input-border-width solid $option-border-color;
+  padding: $option-padding;
+  padding-left: ($option-padding * 2) + 24px;
+  border-radius: $input-border-radius;
+  color: $option-color;
+  & + & {
+    margin-top: $rh-small;
+  }
+  &:hover {
+    border: $input-border-width solid $option-hover-border-color;
+  }
+}
+.c-option__input {
+  @extend .visuallyhidden;
+  &:focus:not(:checked) ~ .c-option__icon {
+    color: rgba($option-color, .35);
+  }
+}
+.c-option__label {
+  display: block;
+}
+.c-option__icon {
+  position: absolute;
+  top: 50%;
+  left: $option-padding;
+  color: transparent;
+  fill: $color-primary;
+  transform: translateY(-50%);
+  :checked ~ & {
+    color: inherit;
+  }
+  :disabled ~ & {
+    opacity: .3;
+  }
+}

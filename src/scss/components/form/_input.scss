@@ -1,0 +1,11 @@
+.c-input {
+  @extend %ext-input-style;
+  @include forElement(textarea) {
+    min-height: 112px;
+    padding: $input-padding-horizontal;
+  }
+
+  &--error {
+    @extend %ext-input-style-error;
+  }
+}
