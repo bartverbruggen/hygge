@@ -18,11 +18,6 @@ $card-padding: $rh-medium;
     display: block;
     text-decoration: none;
   }
-
-  & + & {
-    margin-top: $rh-medium;
-  }
-
   // &--success {
   //   .card__header {
   //     background: $color-success;

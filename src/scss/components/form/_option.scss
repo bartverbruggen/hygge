@@ -14,7 +14,7 @@
   }
 }
 .c-option__input {
-  @extend .visuallyhidden;
+  @extend .u-srOnly;
   &:focus:not(:checked) ~ .c-option__icon {
     color: rgba($option-color, .35);
   }

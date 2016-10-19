@@ -1,0 +1,95 @@
+.u-text {
+  &-small {
+    font-size: $global-font-size-small !important;
+  }
+  &-regular {
+    font-size: $global-font-size !important;
+  }
+  &-large {
+    font-size: $global-font-size-large !important;
+  }
+  &-bold {
+    font-weight: $font-weight-bold !important;
+  }
+  &-default {
+    color: $global-font-color !important;
+  }
+  &-muted {
+    color: $color-muted !important;
+  }
+  @each $type, $color in $color-palette {
+    &-#{$type} {
+      color: $color !important;
+    }
+  }
+
+  &-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &-nobreak {
+    hyphens: auto;
+    word-wrap: break-word;
+  }
+  &-nobreak {
+    white-space: nowrap;
+  }
+  &-underline {
+    border-bottom: 1px solid currentColor;
+  }
+
+  &-left {
+    text-align: left !important;
+  }
+  &-right {
+    text-align: right !important;
+  }
+  &-center {
+    text-align: center !important;
+  }
+  // E.g.: .t-left--medium
+  @each $bp, $px in $breakpoints {
+    @include breakpoint($px, 'min-width') {
+      &-left--#{$bp} {
+        text-align: left;
+      }
+    }
+  }
+  // E.g.: .t-right--medium
+  @each $bp, $px in $breakpoints {
+    @include breakpoint($px, 'min-width') {
+      &-right--#{$bp} {
+        text-align: right;
+      }
+    }
+  }
+  // E.g.: .t-center--medium
+  @each $bp, $px in $breakpoints {
+    @include breakpoint($px, 'min-width') {
+      &-center--#{$bp} {
+        text-align: right;
+      }
+    }
+  }
+
+  &-lower {
+    text-transform: lowercase !important;
+  }
+  &-upper {
+    text-transform: uppercase !important;
+  }
+  &-capitalize {
+    text-transform: capitalize !important;
+  }
+}
+
+
+.u-link {
+  &-muted {
+    @include link-variant($color-muted);
+  }
+  &-heading {
+    @include link-variant($headings-font-color);
+  }
+}

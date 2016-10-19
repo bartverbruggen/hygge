@@ -7,10 +7,12 @@ $font-weight-bold: 700 !default;
 $font-weight-extra-bold: 800 !default;
 $font-weight-base: $font-weight-regular !default;
 
-$base-font-size: 16px !default;
-$base-font-color: $black !default;
-$base-font-family: 'Rubik', 'Arial', sans-serif !default;
-$base-line-height: 22px;
+$global-font-size-small: 14px !default;
+$global-font-size: 16px !default;
+$global-font-size-large: 20px !default;
+$global-font-color: $black !default;
+$global-font-family: 'Rubik', 'Arial', sans-serif !default;
+$global-line-height: 22px;
 
 $headings: h1, h2, h3, h4, h5;
 $headings-font-color: $color-primary !default;
@@ -20,33 +22,34 @@ $headings-line-height: 1.2 !default;
 
 $headings-color-alt: null !default;
 
+$textBlocks: address, blockquote, dl, fieldset, figure, ol, p, pre, ul;
+
 @import 'extends/typo';
 
 :root {
-  font-size: $base-font-size;
+  font-size: $global-font-size;
 }
 
 body {
-  color: $base-font-color;
-  font-family: $base-font-family;
-  line-height: lh($base-line-height);
+  color: $global-font-color;
+  font-family: $global-font-family;
+  line-height: lh($global-line-height);
 }
 
-p {
+#{$textBlocks} {
   margin: 0 0 $rh-small;
+  @at-root * + & {
+    margin-top: $rh-small;
+  }
 }
 
 %ext-heading {
-  margin-top: $rh-large;
-  margin-bottom: $rh-medium;
+  margin: 0 0 $rh-medium;
   color: $headings-font-color;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   text-transform: none;
-  &:first-child {
-    margin-top: 0;
-  }
   &:last-child {
     margin-bottom: 0;
   }
@@ -63,16 +66,6 @@ p {
       opacity: 0;
     }
   }
-  // em {
-  //   color: $color-primary;
-  //   font-style: normal;
-  // }
-  // &:hover {
-  //   a .icon {
-  //     opacity: 1;
-  //     transform: translateX(110%);
-  //   }
-  // }
 }
 
 .t-heading {
@@ -151,6 +144,9 @@ h5 {
 #{$headings} {
   & + & {
     margin-top: 0;
+  }
+  @at-root * + & {
+    margin-top: $rh-large;
   }
 }
 

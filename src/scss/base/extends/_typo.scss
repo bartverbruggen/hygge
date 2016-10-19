@@ -1,7 +1,7 @@
-@function fs($target, $context: $base-font-size, $unit: rem) {
+@function fs($target, $context: $global-font-size, $unit: rem) {
   @return #{round(($target/$context)*1000)/1000}#{$unit};
 }
-@function lh( $target, $context: $base-font-size) {
+@function lh( $target, $context: $global-font-size) {
   @return round(($target/$context)*1000)/1000;
 }
 

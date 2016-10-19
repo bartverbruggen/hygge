@@ -32,14 +32,14 @@
     @include button-variant($white, $color-secondary);
   }
   &--tertiary {
-    @include button-variant($base-font-color, $gray-light);
+    @include button-variant($global-font-color, $gray-light);
   }
   &--outline {
-    @include button-variant($base-font-color, ($white, $gray-xlight), $base-font-color);
+    @include button-variant($global-font-color, ($white, $gray-xlight), $global-font-color);
     border-width: 1px;
   }
   &--text {
-    @include button-variant($base-font-color, transparent);
+    @include button-variant($global-font-color, transparent);
     text-decoration: underline;
     padding: 0;
   }

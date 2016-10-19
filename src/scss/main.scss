@@ -5,16 +5,23 @@
 @import 'config/colors';
 @import 'config';
 
-@import 'helpers/global';
-@import 'helpers/spacer';
-
+@import 'base/mixins';
 @import 'base/animation';
 @import 'base/scaffold';
-@import 'base/image';
-@import 'base/icon';
 @import 'base/typo';
+@import 'base/image';
 @import 'base/button';
 @import 'base/grid';
+
+@import 'utility/icon';
+@import 'utility/flex';
+@import 'utility/space';
+@import 'utility/text';
+@import 'utility/visibility';
+@import 'utility/list';
+
+// @import 'helpers/global';
+// @import 'helpers/spacer';
 
 @import 'components/card';
 @import 'components/form';
