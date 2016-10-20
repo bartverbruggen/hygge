@@ -1,22 +1,24 @@
 // TODO
 // ALLES HERZIEN
 
+$mediaElements: (audio, canvas, iframe, img, svg, video);
+
+#{$mediaElements} {
+  vertical-align: middle;
+}
+
 img {
   // Grid defaults to get images and embeds to work properly
   max-width: 100%;
   height: auto;
-  -ms-interpolation-mode: bicubic;
-
-  // Get rid of gap under images by making them display: inline-block; by default
-  display: inline-block;
-  vertical-align: middle;
+  border: 0;
 }
 
 svg {
   fill: currentColor;
-  // stroke: currentColor;
-  // stroke-width: 1.5;
-  // pointer-events: none;
+  &:not(:root) {
+    overflow: hidden;
+  }
 }
 
 .image {

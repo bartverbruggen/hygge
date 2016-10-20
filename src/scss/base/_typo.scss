@@ -68,7 +68,7 @@ body {
   }
 }
 
-.t-heading {
+.heading {
   &--alt {
     color: $color-secondary;
   }
@@ -126,114 +126,28 @@ body {
 }
 
 h1 {
-  @extend .t-heading--1;
+  @extend .heading--1;
 }
 h2 {
-  @extend .t-heading--2;
+  @extend .heading--2;
 }
 h3 {
-  @extend .t-heading--3;
+  @extend .heading--3;
 }
 h4 {
-  @extend .t-heading--4;
+  @extend .heading--4;
 }
 h5 {
-  @extend .t-heading--5;
+  @extend .heading--5;
 }
 
 #{$headings} {
-  & + & {
-    margin-top: 0;
-  }
   @at-root * + & {
     margin-top: $rh-large;
   }
 }
 
-.t-info {
-  @include fsRem(14px);
-  color: $gray-medium;
-}
-
-.t-lead {
-  @include fsRem(18px);
-  margin-bottom: $rh-medium;
-}
-
-.t-heading--border {
-  border-bottom: 1px solid;
-}
-
-.t-label {
-  @include fsRem(12px);
-  color: $color-primary;
-  font-weight: $font-weight-medium;
-  text-transform: uppercase;
-}
-
-// Alignment
-.t-left {
-  text-align: left;
-}
-.t-right {
-  text-align: right;
-}
-.t-center {
-  text-align: center;
-}
-.t-justify {
-  text-align: justify;
-}
-.t-nowrap {
-  white-space: nowrap;
-}
-
-// E.g.: .t-left--medium
-@each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .t-left--#{$bp} {
-      text-align: left;
-    }
-  }
-}
-// E.g.: .t-right--medium
-@each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .t-right--#{$bp} {
-      text-align: right;
-    }
-  }
-}
-
-// Transformation
-.t-lower {
-  text-transform: lowercase;
-}
-.t-upper {
-  text-transform: uppercase;
-}
-.t-capitalize {
-  text-transform: capitalize;
-}
-.t-overflow {
-  display: inline-block;
-  overflow: hidden;
-  max-width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.t-no-overflow {
-  white-space: nowrap;
-}
-
-.t {
-  @each $type, $color in $color-palette {
-    &-#{$type} {
-      color: $color;
-    }
-  }
-}
-
-.t-strong {
-  font-weight: bold;
+.heading--border {
+  padding-bottom: $rh-xsmall;
+  border-bottom: 1px solid currentColor;
 }

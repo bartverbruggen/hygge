@@ -12,6 +12,7 @@
 @import 'base/image';
 @import 'base/button';
 @import 'base/grid';
+@import 'base/page';
 
 @import 'utility/icon';
 @import 'utility/flex';
@@ -23,5 +24,8 @@
 // @import 'helpers/global';
 // @import 'helpers/spacer';
 
+@import 'components/section';
+@import 'components/inline';
+@import 'components/label';
 @import 'components/card';
 @import 'components/form';

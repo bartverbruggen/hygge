@@ -1,0 +1,5 @@
+.label {
+  @include fsRem(12px);
+  color: $gray-medium;
+  letter-spacing: .4px;
+}

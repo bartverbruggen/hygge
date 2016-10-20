@@ -31,8 +31,6 @@
   left: $input-padding-horizontal;
   z-index: 20;
   transform: translateY(-50%);
-  color: $color-primary;
-
   ~ .c-input {
     padding-left: ($input-padding-horizontal * 2) + 16px;
   }

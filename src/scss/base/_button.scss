@@ -1,6 +1,5 @@
 // TODO
 //
-// DUMP THE PIXELS
 // More variables!
 
 @import 'extends/button';
@@ -35,7 +34,7 @@
     @include button-variant($global-font-color, $gray-light);
   }
   &--outline {
-    @include button-variant($global-font-color, ($white, $gray-xlight), $global-font-color);
+    @include button-variant(($gray-xlight, $global-font-color), (transparent, $gray-xlight), $gray-xlight);
     border-width: 1px;
   }
   &--text {

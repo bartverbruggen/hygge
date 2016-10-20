@@ -12,7 +12,8 @@ $grid-container-width: 1196px !default;
 $grid-container-gutter: ($grid-column-gutter / 2) !default;
 $grid-columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) !default;
 $grid-offset: (3, 6) !default;
-$grid-render-example: false;
+$grid-columns-repeating: (2, 3, 4) !default;
+$grid-render-example: false !default;
 
 // Mixins, functions, ...
 @import 'extends/grid';
@@ -23,7 +24,7 @@ $grid-render-example: false;
   max-width: $grid-container-width;
 }
 
-.grid {
+.row {
   @include make-row(16px);
   display: flex;
   flex-wrap: wrap;
@@ -43,62 +44,95 @@ $grid-render-example: false;
   }
 }
 
-// Creates all the grid item classes
-// Examples: .grid__6
-@each $column in $grid-columns {
-  .grid__#{$column} {
-    @include make-column($column);
-  }
-}
-
-// Creates all the breakpoint grid ITEM classes
-// Example: .grid__8--medium
-@each $bp, $px in $breakpoints {
+@if $grid-columns {
+  // Creates all the grid item classes
+  // Examples: .grid__6
   @each $column in $grid-columns {
     .grid__#{$column} {
-      @include breakpoint($bp) {
-        &--#{$bp} {
-          @include make-column($column);
+      @include make-column($column);
+    }
+  }
+
+  // Creates all the breakpoint grid ITEM classes
+  // Example: .grid__8--medium
+  @each $bp, $px in $breakpoints {
+    @each $column in $grid-columns {
+      .grid__#{$column} {
+        @include breakpoint($bp) {
+          &--#{$bp} {
+            @include make-column($column);
+          }
         }
       }
     }
   }
-}
 
-.grid__0 {
-  display: none;
-}
-.grid__12 {
-  display: block;
-}
-
-// Creates all the offset class
-// Example: .grid-offset__6
-@each $column in $grid-offset {
-  .grid-offset__#{$column} {
-    @include make-column-offset($column);
+  .grid__0 {
+    display: none;
+  }
+  .grid__12 {
+    display: block;
   }
 }
-// Example: .grid-offset__6--medium
-@each $bp, $px in $breakpoints {
+
+@if $grid-offset {
+  // Creates all the offset class
+  // Example: .grid-offset__6
   @each $column in $grid-offset {
     .grid-offset__#{$column} {
-      @include breakpoint($bp) {
-        &--#{$bp} {
-          @include make-column-offset($column);
+      @include make-column-offset($column);
+    }
+  }
+  // Example: .grid-offset__6--medium
+  @each $bp, $px in $breakpoints {
+    @each $column in $grid-offset {
+      .grid-offset__#{$column} {
+        @include breakpoint($bp) {
+          &--#{$bp} {
+            @include make-column-offset($column);
+          }
         }
       }
     }
   }
 }
+
+@if $grid-columns-repeating {
+  .row {
+    // Creates all the breakpoint grid classes
+    // Examples: .row-2-col
+    @each $column in $grid-columns-repeating {
+      &-#{$column}-col {
+        > .grid__item {
+          @include make-repeating-column($column);
+        }
+      }
+    }
+
+    // Creates all the breakpoint grid classes
+    // Examples: .row-2-col--medium
+    @each $bp, $px in $breakpoints {
+      @each $column in $grid-columns-repeating {
+        &-#{$column}-col {
+          @include breakpoint($bp) {
+            &--#{$bp} {
+              > .grid__item {
+                @include make-repeating-column($column);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 @if $grid-render-example {
   .grid__example {
     padding: $rh-medium;
-    background: $gray-light;
-    color: $color-primary;
-    font-family: $header-font-family;
-    font-weight: bold;
+    background: rgba($color-secondary, .35);
+    font-family: $headings-font-family;
     text-align: center;
     &--high {
       height: 400px;
