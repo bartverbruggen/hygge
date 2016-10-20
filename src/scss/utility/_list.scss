@@ -1,3 +1,46 @@
 .u-list {
+  list-style: none;
+  padding-left: 0;
+  > li {
+    list-style: none;
+    position: relative;
+    padding-left: $rh-medium;
+    &::before {
+      content: '•';
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $color-primary;
+    }
+  }
 
+  &--number {
+    counter-reset: list-counter;
+    > li {
+      padding-left: $rh-medium + $rh-small;
+      &::before {
+        font-family: monospace;
+        content: counter(list-counter, decimal);
+        counter-increment: list-counter;
+        color: $color-primary;
+      }
+    }
+  }
+
+  &--reset {
+    > li {
+      padding-left: 0;
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &--space {
+    > * {
+      + * {
+        margin-top: $rh-small;
+      }
+    }
+  }
 }
