@@ -15,6 +15,7 @@
   }
 }
 %ext-input-style-disabled {
+  background: $input-disabled-background-color;
   color: $input-disabled-color;
   border-color: $input-disabled-border-color;
   cursor: not-allowed;

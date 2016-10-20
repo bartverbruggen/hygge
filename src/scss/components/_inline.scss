@@ -1,4 +1,4 @@
-$inline-nav-font-size: $global-font-size !default;
+$inline-nav-font-size: $global-font-size-large !default;
 
 .inline {
   display: flex;
@@ -43,9 +43,9 @@ $inline-nav-font-size: $global-font-size !default;
 
   &--nav {
     a {
+      @include fsRem($inline-nav-font-size);
       color: $color-muted;
       white-space: nowrap;
-      font-size: $inline-nav-font-size;
       display: inline-block;
       text-decoration: none;
 
@@ -61,4 +61,6 @@ $inline-nav-font-size: $global-font-size !default;
       }
     }
   }
+
+  // @include hook-inline;
 }
