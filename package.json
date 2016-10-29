@@ -1,11 +1,11 @@
 {
-  "name": "spring",
-  "version": "1.0.0",
+  "name": "hygge",
+  "version": "0.0.1",
   "description": "A great way to start every project",
   "main": "js/main.js",
-  "style": "scss/spring.scss",
+  "style": "scss/hygge.scss",
   "repository": {
-    "url": "git@github.com:bartverbruggen/spring.git",
+    "url": "git@github.com:bartverbruggen/hygge.git",
     "type": "git"
   },
   "author": "Bart Verbruggen <bart@statik.be>",
