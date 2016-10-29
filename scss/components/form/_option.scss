@@ -1,10 +1,6 @@
 .c-option {
-  @extend %ext-input-style;
-  @include transitions((color, background, border));
+  display: block;
   position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: ($input-padding-horizontal * 1.75) + 24px;
   & + & {
     margin-top: $rh-small;
   }
@@ -16,7 +12,14 @@
   }
 }
 .c-option__label {
-  display: block;
+  @extend %ext-input-style;
+  @include transitions((color, background, border));
+  display: flex;
+  align-items: center;
+  padding-left: ($input-padding-horizontal * 1.75) + 24px;
+  @at-root :checked ~ & {
+    @extend %ext-input-style-hover;
+  }
 }
 .c-option__icon {
   position: absolute;

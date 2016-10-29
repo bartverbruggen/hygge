@@ -1,9 +1,7 @@
 'use strict';
 
-//  Include components here to use them
 module.exports = {
-  form: require('components/form'),
-  map: require('components/map'),
+  components: require('./components'),
   triggerEvent: require('helper/trigger'),
   ready: require('vendor/ready')
 };
