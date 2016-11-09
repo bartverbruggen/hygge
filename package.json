@@ -9,5 +9,9 @@
     "type": "git"
   },
   "author": "Bart Verbruggen <bart@statik.be>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.16.6",
+    "normalize.css": "^5.0.0"
+  }
 }
